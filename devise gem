@@ -1,0 +1,62 @@
+
+Devise 是業界最常拿來做使用者認證 (User Authentication) 的 gem 之一，「使用者認證」包括設定密碼、註冊、登入、登出等基本功能，而 Devise 還提供了信箱認證、忘記密碼、黑名單等進階功能。
+
+1. bundle gem 'devise' 
+
+
+2. rails generate devise:install
+(生成 Devise 幫你準備好的檔案和設定：)
+
+
+3. rails generate devise:views
+(會在 app/views 目錄下產生一個 devise 資料夾，並載入所有的 View 樣板，讓你可以做進一步的客製化。)
+
+
+4. rails generate devise user
+(add_column :users, :role, string)看需要加什麼欄位
+
+
+5. before_action :authenticate_user!
+(使用者需登入才能看到畫面)。devise給的方法可以直接使用。
+
+
+6. flash message and login process.
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
+ <% if current_user %>
+  Hi, <%= current_user.email %>
+    <%= link_to('登出', destroy_user_session_path, method: :delete) %> |
+    <%= link_to('修改密碼', edit_user_registration_path) %>
+  <% else %>
+    <%= link_to('註冊', new_user_registration_path) %> |
+    <%= link_to('登入', new_user_session_path) %>
+ <% end %>
+
+
+7. before_action :authenticate_admin
+ (自訂方法) 
+
+  在application寫authenticate_adminz方法
+  def authenticate_admin
+    unless current_user.admin?
+      flash[:alert] = "Not allow"
+      redirect_to root_path
+    end
+  end
+
+
+  在user Modle 寫 admin? 方法 
+
+  def admin? 
+    slef.role == "admin"
+  end
+
+
+
+
+
+
+
+

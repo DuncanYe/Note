@@ -1,0 +1,9 @@
+1. 屬於別人的那邊，要放入別人的id，讓資料連過去
+   (etc: restaurants belongs_to categories )
+   restaurant Table 裡要有 category_id
+
+
+
+
+  validates_presence_of :name
+  validates_uniqueness_of :name

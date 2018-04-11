@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>flex-grow.shrink.basis</title>
+
+  <!-- 
+  
+  給寬度後讓
+  設定比例讓瀏覽器直接算
+
+  flex: 0     1     0
+  flex: grow shrink basis
+  flex-flow: 
+  flex-basis 設定主軸長度的基本值
+
+
+
+   -->
+
+  <link rel="stylesheet" type="text/css" href="reset.css">
+
+  <style type="text/css">
+
+  .warp {
+    width: 1000px;
+    border: 3px solid;
+    display: flex;
+    height: 300px;
+  }
+
+  .item {
+    height: 100px;
+    width: 200px;
+    /*margin: 10px;*/
+  }
+
+  .item3{ 
+    width: 600px;
+    height: 200px;
+      }
+   .item4 {
+    width: 600px;
+    height: 200px;
+   } 
+   .item5{ 
+    width: 200px;
+    height: 200px;
+      }
+   .item6{ 
+    width: 200px;
+    height: 200px;
+      }
+
+
+  .item1{background-color: #faa; flex-grow: 1;}
+  .item2{background-color: #afa; flex-grow: 4;}
+
+  .item3{background-color: #faa; flex-shrink: 1; }
+  .item4{background-color: #afa; flex-shrink: 9; }
+
+  .item5{background-color: #faa; flex-basis: 400px; }
+  .item6{background-color: #afa; flex-basis: 400px; }
+
+
+
+
+  </style>
+
+
+</head>
+<body>
+
+  <div class="warp">
+    <div class="item item1"></div>
+    <div class="item item2"></div>
+  </div>
+  <br>
+  <div class="warp">
+    <div class="item item3"></div>
+    <div class="item item4"></div>
+  </div>
+  <br>
+  <div class="warp">
+    <div class="item item5"></div>
+    <div class="item item6"></div>
+  </div>
+  
+</body>
+</html>

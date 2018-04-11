@@ -1,0 +1,128 @@
+1. 
+
+    方法一
+        寫兩支CSS，個別link 進HTML檔案裡
+
+        <!-- 電腦版 -->
+        <link rel="stylesheet" type="text/css" href="pc.css" media="screen and (min-width: 768px)" />
+        <!-- 手機版 -->
+        <link rel="stylesheet" type="text/css" href="mobile.css" media="screen and (max-width: 767px)" />
+
+        上述指令的意思是：電腦版 pc.css 裡的樣式設定，不會出現在螢幕寬度小於 768px 的情況，反之，mobile.css 的設定發生的寬度上限為 767px。
+
+
+    方法二   
+        直接到 CSS 樣式表裡再定義 media queries 
+        @media screen and (max-width: 767px) {} 支援至螢幕寬度767px 在上去就不支援
+        @media screen and (max-width: 768px) 
+
+
+    方法三
+        如果 CSS 設定很多，為了管理方便，你可以在 main.css 裡使用 @import 的方法，然後還是把 CSS 樣式移到 pc.css 和 mobile.css 等文件中處理：
+
+        @import url("pc.css") screen and (min-width: 768px);
+        @import url("mobile.css") screen and (max-width: 767px);
+
+    以上可控制網頁版螢幕縮放時產生想要的變化，
+
+    但無法在手機上顯示，原因：
+
+    1)因為手機為了適應傳統網頁通常為『桌面網頁瀏覽』，所以設定自己為980px左右的寬度
+
+    2)手機解析度直逼電腦如，iPhone 5 的 Retina 螢幕解析度是 640 x 1136，13 吋的 macbook 預設解析度為 1280 x 800，手機解析度直逼電腦。
+
+2.
+
+    所以需加入Viewport。
+    在HTML加入 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    請注意這行宣告要放在引入 CSS 的 <link> 之前，才能在瀏覽器讀到 media queries 之間先調整 viewport 的基準。
+
+    width=device-width 調整內容寬度為裝置寬度；
+    initial-scale=1.0 設定「CSS 像素」和「裝置像素」的比例為 1:1。
+
+    『等於是告訴小螢幕說，你就當個小螢幕別勉強自己，就會小於768px的CSS下限，所以會由767px的CSS接手顯示』
+
+    常見斷點：320px、480px、720px、768px、960px、1024px。
+
+
+3. 
+    調整 HTML.CSS 內容
+
+
+
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝   以下為Demo HTML ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>practice</title>
+  <link rel="stylesheet" href="reset.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+
+  <style type="text/css">
+    .wrap {
+      border: 2px solid #f0f;
+      width: 960px;
+      /*background-color: #aaa;*/
+      margin: auto;
+    }
+
+    .box1 {
+      /*background-color: #333;*/
+      /*height: 500px;*/
+      width: 450px;
+      float: left;
+      margin: 20px 15px;
+    }
+
+    .box2 {
+      /*background-color: #700;*/
+      /*height: 300px;*/
+      width: 450px;
+      float: left;
+      margin: 20px 15px;
+    }
+
+    .clearfix {
+      clear: both;
+    }
+
+
+
+
+
+
+
+
+  </style>
+
+</head>
+<body>
+  <div class="wrap">
+    
+    <div class="box1">
+      <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis ipsa facilis enim iste dicta inventore magni voluptatibus illum tenetur ut quam quaerat alias velit dolores veritatis mollitia, vero tempora quasi necessitatibus suscipit nulla veniam! Assumenda necessitatibus, illo unde ullam eos sint incidunt voluptatum iste culpa ut velit deserunt rerum explicabo. Dolor, officiis quis repudiandae consectetur dolorum expedita asperiores, culpa qui magni quas minima recusandae possimus consequuntur dolorem necessitatibus obcaecati ipsam, tenetur nobis! Placeat ducimus beatae ipsam, soluta illo, esse corrupti nobis deleniti nisi fugiat unde odit, et cum quam laborum officia iste enim ea. Ex iure voluptatum aliquam impedit et.</div>
+      <div>Iure nam facere ex, dolores error accusantium reiciendis repellendus delectus eveniet, perspiciatis beatae voluptate ipsum totam sunt ratione nihil quisquam vel magnam aspernatur corporis. Ipsum doloribus in recusandae quidem enim! Corporis eos voluptatum error, consequuntur culpa, nobis voluptatibus sed, enim, repellat similique labore optio dolor repellendus esse? Atque at, corporis doloribus iste cumque, necessitatibus voluptate, eveniet, ut quidem esse molestiae sed. Blanditiis doloribus, maiores repellendus aliquam commodi, atque laudantium quis. Inventore, assumenda, amet officiis nesciunt optio quas minima magnam praesentium aperiam nemo ab hic, earum voluptatum, excepturi veniam eaque eum vero accusamus doloremque aut id quibusdam impedit dicta quisquam laborum.</div>
+      <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione, rem obcaecati aliquam aspernatur ipsam ea adipisci error, hic, exercitationem esse officia! Aspernatur saepe sapiente quod tenetur repellendus. Enim temporibus animi, in a dolor esse nihil consectetur eius rem beatae architecto suscipit accusamus voluptatem dicta reiciendis illum amet. Magni iste placeat, ipsum deleniti omnis unde laborum quo animi eligendi, nam debitis soluta aperiam maiores iure quisquam, magnam deserunt. Quisquam, quis, culpa. Culpa vel animi deleniti, nesciunt, enim consequatur praesentium sint veniam optio expedita, odio ex magnam quos? Repellendus necessitatibus aperiam quae rem quos, dolorem! Molestiae aut, possimus necessitatibus, dolorum hic quibusdam.</div>
+    </div>
+    <div class="box2">
+      <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis molestiae tenetur, magnam modi veritatis nihil, possimus mollitia ex, excepturi aspernatur ducimus! Soluta, fugit voluptatum quo, totam provident tempore delectus quis, veniam nisi ipsum ratione aut! Eligendi at aperiam, amet. Veritatis doloribus amet impedit excepturi commodi quibusdam dolorem quisquam nostrum fugit, esse dolores reiciendis sequi! Aut, autem soluta, eveniet quos, saepe voluptate nisi, recusandae corrupti fuga obcaecati dignissimos repudiandae nemo ratione architecto! Nisi, assumenda, tenetur et vero sunt pariatur nobis velit modi explicabo suscipit, amet nihil accusamus in. Dolorum, consequatur dicta et nostrum, totam tempore inventore assumenda sunt tenetur excepturi, perferendis.</div>
+      <div>Modi consectetur repellat ut, praesentium at voluptates, ullam est numquam ipsum unde dolore placeat vel quae natus labore, earum magnam nulla eveniet ab quaerat expedita, et eligendi! Non accusamus molestiae optio commodi deserunt harum voluptatibus accusantium, labore est quisquam quam aut impedit magnam vel officia ea a consequuntur ducimus minima veniam mollitia itaque. Nemo a molestiae, officiis, aliquid voluptate facere alias velit quaerat nam perferendis. Ab eius asperiores, dolore enim quasi quo aliquid ducimus debitis autem. Hic iure consectetur natus, ducimus, eius labore ipsum similique quod. Nihil laboriosam iure aliquam excepturi repellat temporibus dolor corrupti, quo, soluta explicabo, eaque magni.</div>
+    </div>
+    <div class="clearfix"></div>
+  
+  </div>
+</body>
+</html>
+
+
+
+

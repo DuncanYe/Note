@@ -1,0 +1,21 @@
+@media screen and (max-width: 767px) {
+  .wrap {
+    /*background-color: #999;*/
+    /*width: auto;*/
+  }
+
+  div {
+    color: #f00;
+  }
+}
+
+@media screen and (min-width: 768px) {
+
+  .wrap {
+    /*background-color: #00f;*/
+  }
+  div {
+    color: #f0f;
+  }
+  
+}

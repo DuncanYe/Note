@@ -1,0 +1,14 @@
+1. bundle gem 'kaminari'
+
+2.  @xxx = Xxx.page(params[:page]).per(10)
+    page - Kaminari 提供的方法，根據分頁序數來篩選對應資料
+    per - Kaminari 提供的方法，決定一頁有幾筆資料
+    params[:page] - 瀏覽器請求網頁時帶入的參數
+
+
+3. 在需要的地方加上 <%= paginate @xxx %> 要對應步驟2的controller action
+   paginate 是 Kaminari 提供的 helper，後面接從 controller 傳進來的實例變數。
+
+
+4. rails generate kaminari:views bootstrap3
+   產生bootstap效果的分頁樣式 

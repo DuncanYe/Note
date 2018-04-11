@@ -1,0 +1,26 @@
+group :production do
+  gem 'pg'
+end
+
+gem 'sqlite3'
+
+/config/database.yml 裡 
+production:
+  adapter: postgresql
+  encoding: Unicode
+
+git commit 後才能推上heroku
+
+
+
+推上Heroku後載入資料指令 => 
+
+heroku run rake db:migrate => 
+
+heroku run rails  db:seed => 
+
+heroku run rails dev:fake => 
+
+heroku open
+
+heroku console

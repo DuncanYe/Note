@@ -1,0 +1,102 @@
+1. 設定routes public admin member collection
+
+
+2. g controller
+
+
+3. 設定關聯
+
+
+4.設定 允許傳入的資料(Controller)，必定要有的資料(Model)
+
+
+擬定index(首頁)要顯示什麼資料，設定index 方法
+
+
+Rails 允許資料以實例變數 (@photos = Photo.all) 的形式從控制器傳遞到Views畫面
+view 畫面排版
+
+
+C.
+寫new action 
+
+寫出view資料填寫表格，注意表單form_for存取路徑(前台或後台？是不是包在namespace裡？ )
+前台<%= form_for @restaurant do |restaurant| %>
+後台<%= form_for [:amind, @restaurant] do |restaurant| %>
+
+寫errors message，提示缺少的資料
+
+設定必填資料 validates_presence_of :name
+
+寫Create action 
+
+設定允許儲存的資料Strong Parameters。安全問題
+@restaurant = Restaurant.new(restaurant_params)
+ private
+  def restaurant_params
+    params.require(:restaurant).permit(:name, :tel, :address, :opening_hours, :description )
+  end
+
+if else 儲存成功或失敗畫面導向哪裡
+
+提示訊息
+
+
+
+R.
+寫出show action 要給參數
+
+view 畫面的呈現 (有待加強!)
+
+
+U.
+寫edit action 要給參數
+
+顯示edit view畫面
+
+寫update action 要給參數
+
+if else 畫面更新後導向哪裡
+
+提示訊息
+
+
+
+D
+寫destroy action 要給參數
+
+刪除後畫面導哪裡
+
+提示訊息
+
+
+-
+
+
+error messsge
+partial 
+before_action :set_restaurant, only:  [:show, :edit, :update, :destroy]
+git 還原
+
+
+
+show edit update delete 設定連結時都要傳參數(r) ，才能找到要更動的資料
+<li><%= link_to 'Show', admin_restaurant_path(r) %></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

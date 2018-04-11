@@ -1,0 +1,61 @@
+1. gem 'ffaker'
+
+2. 在Path：lib/tasks裡建立 dev.rake 資料夾
+
+
+3.
+namespace  :dev do 
+  task fake: :environment do
+    Restaurant.destroy_all
+
+    500.times do |i|
+      Restaurant.create!(
+        name: FFaker::Name.name,
+        tel: FFaker::PhoneNumber.phone_number,
+        address: FFaker::Address.street_name,
+        opening_hours: FFaker::Time.datetime,
+        description: FFaker::Lorem.paragraphs
+        )
+    end
+
+    puts "create #{Restaurant.count} fake restaurant."
+  end
+end
+
+-------------------------------------------
+name: FFaker::Name.name
+
+name: (table裡name的名稱
+FFaker::Name.name (FFaker referance 裡找想用的格式
+
+--------------------------
+
+定義指令為 rails dev:fake
+namespace :dev - 讓指令出現前綴，例如 rails dev:fake，有助於指令的結構化管理，如同 rails db:migrate 等系列，使用 db 的 namespace 將和資料庫有關的指令組織在一起。
+
+task fake: :environment，也可以寫作 task :fake => :environment - 定義執行指令為 rails dev:fake。而 :environment 是環境變數，加入 :environment 可以讓你的 Rake 與專案的 Model 和資料庫互動，否則你只能在 Rake 寫 Ruby 程式。
+
+
+
+大量產生 Restaurant 資料
+Restaurant.destroy_all - 在大量產生資料前，先清除舊資料，如此一來資料的數量才會在你的掌控中。
+
+500.times do |i|...end - 產生 500 筆資料，並利用 times 的計數器 i，來讓餐廳資料有些許變化，例如 name: "restaurant#{i.to_s}"，這裡因為需要字串，所以數字 i 後面要串接 to_s 方法，將自己轉為字串。
+
+要產生的 Restaurant 屬性清單裡沒有包含 image，因為 image 已經掛載成為 CarrierWave 的圖片上傳欄位
+
+在 Rake 的結尾，利用 puts 撰寫提示訊息，幫助標示任務執行完畢。
+
+
+
+create v.s. create!
+create 方法能建立一筆新資料，並將資料存入資料庫。若中間發生無法成功寫入資料庫的情況，由於在 500.times do … end 的包圍下，仍然會持續跑完 500 次的 Restaurant.create。程序跑完之後，你需要檢查資料數，才會知道有無資料漏存。
+
+若使用 create!，一旦遇到無法寫入資料庫的情況，會丟出錯誤，讓程序中止，因此你可以立即檢查。
+
+兩個方法都很常用，需要依情境來選擇，看是比較需要抓出資料錯誤，或者不希望使用者的體驗受到中斷。
+
+
+
+
+

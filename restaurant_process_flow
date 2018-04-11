@@ -1,0 +1,21 @@
+
+
+create public and admin index
+
+add login process using devise and divise can create user model
+(set up admin authentication) 
+
+
+CRUD
+generate modle. definition table data 
+definate routes
+create action method
+create views page
+seed「種子資料」應用程式預設的初始資料，該網站應該要有的資料(etc. 餐廳論壇的category分類項目)
+
+
+GEM
+Add photo upload using Carrierwave grm
+Generate fake date using fake gem
+Add pagination using kaminari gem
+Optimize views using Bootstrap gem 

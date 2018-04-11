@@ -1,0 +1,16 @@
+1. bundle gem'carrierwave'
+
+2.看要載入的Modle資料表有無相片(photo/image/avatar)欄位，存放資料
+
+3.rails g uploader photo/image/avatar
+
+4.掛載 mount_uploader :photo/image/avatar, Photo/Image/AvatarUploader 到要使用的Modle裡
+  user或restaurant etc
+
+5. strong_paramter. 把photo//image/avatar寫進入permit驗證資料名單
+
+6. image_tag 在new & edit 加上資料欄位提供輸入，在show加上欄位顯示出來
+
+
+
+<img src="http://via.placeholder.com/90x90" class="img-responsive img-rounded">
