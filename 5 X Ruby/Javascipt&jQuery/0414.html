@@ -1,0 +1,116 @@
+ex-38.html
+ex-42.html
+
+
+變數有兩種型別
+基本型別
+物件型別
+
+var 1 = 30;
+
+a = a + 1;  31
+
+a = a + ''; '31'
+
+a = a + 1;  '311'
+
+a = a * 2;  622
+乘號沒有意義
+
+
+isNaN(n) 才能判斷是不是數字 無法用 === 判斷
+isNaN("asd") true
+asd === ('asd' + 123) false
+
+alert
+prompt 回傳都是字串 ex024.html
+confirm
+
+boolean 判斷只有這些事false 其他都是true
+
+Undefined
+Null
+0, NaN
+""   ''
+
+基本型別
+數字 字串 布林 null undefined
+物件型別
+
+可用-1來判斷想找得直有沒有在index裡面 -1代表沒有
+var colors = [ "red", "yellow", "blue"]; //            
+console.log( colors.indexOf("red") );     // 0
+console.log( colors.indexOf("black") );   // -1
+
+陣列foreach map filter
+
+(找出陣列單數)
+var a = [1, 2, 3, 4, 5, 9, 10, 8];
+
+  var a1 = a.filter(function(n){
+    return n % 2 != 0
+}); 
+
+console.log(a1)
+
+
+判斷閏年條件(2000.2016)
+可被4整除 && 但不能被100整除
+可倍400整除
+可被100整除
+
+<input type="y" class='y'>
+<button>Submit</button>
+
+$("button").on('click', function(){
+   
+   var year = Number( $(".y").val() );
+
+( year % 4 === 0 && year / 100 === 0 )
+  
+  if ( year % 4 === 0 && year % 100 > 0 ){
+    alert ('閏年')
+  }
+  else if ( year / 400 === 0 ){
+    alert ('閏年')
+  }
+   else if ( year / 1000 === 0){
+     alert('閏年')
+   }
+  else {
+    alert ('You are nothing')
+  }
+   
+   
+});
+
+
+
+
+
+判斷是否為數字
+
+var n = prompt("請輸入數字");
+
+if( !isNaN(n) ){
+  alert('數字');
+}
+else{
+  alert('不是數字');
+}
+
+
+$('.name').attr('class', '.red') 直接換掉本來的
+$('.name').addclass('.red') 加上去
+
+.togglclass() 沒有的話加上去 有的話移除。做開關很方便
+
+
+
+
+
+
+
+
+
+

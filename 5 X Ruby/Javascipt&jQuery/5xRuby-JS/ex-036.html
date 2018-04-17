@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>switch - case</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+var month = prompt("請輸入月份", '');
+
+month = Number(month);
+
+// 三個月份為一個季節，採無條件進位制
+var season = Math.ceil( month/3 );
+
+console.log( season );
+
+ switch ( season ) {
+  case 1:
+    alert("春天");
+  break;
+
+  case 2:
+    alert("夏天");
+  break;
+
+  case 3:
+    alert("秋天");
+  break;
+
+  case 4:
+    alert("冬天");
+  break;
+
+  default:
+    alert("數值有誤");
+  break;
+};
+
+</script>
+
+</body>
+</html>

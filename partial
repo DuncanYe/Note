@@ -1,2 +1,3 @@
 問題
-不再partial裡寫實例變數
+不再partial裡寫實例變數 
+etc:  <%= render partial: "form", locals: {doc: @doc } %>

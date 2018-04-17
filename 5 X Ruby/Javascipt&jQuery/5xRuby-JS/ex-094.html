@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript 跟你想的不一樣</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+  var foo = 1;
+
+  var doSomeThing = function (bar){
+    alert( foo );              // 這時候會出現什麼 ?
+
+    var foo = 2;
+    return foo + bar;
+  };
+
+  foo = 100;
+
+  console.log( doSomeThing(3) );     // ?
+  console.log( foo );                // ?
+
+</script>
+
+</body>
+</html>

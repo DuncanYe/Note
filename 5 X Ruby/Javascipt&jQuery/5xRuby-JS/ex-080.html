@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap_232.min.css">
+    <meta charset="utf-8">
+    <title>[實作] Go-top 按鈕</title>
+    <style type="text/css">
+      body {
+        padding-top: 20px;
+        padding-bottom: 60px;
+      }
+
+      /* Custom container */
+      .container {
+        margin: 0 auto;
+        max-width: 1000px;
+      }
+      .container > hr {
+        margin: 60px 0;
+      }
+
+      /* Main marketing message and sign up button */
+      .jumbotron {
+        margin: 80px 0;
+        text-align: center;
+      }
+      .jumbotron h1 {
+        font-size: 100px;
+        line-height: 1;
+      }
+      .jumbotron .lead {
+        font-size: 24px;
+        line-height: 1.25;
+      }
+      .jumbotron .btn {
+        font-size: 21px;
+        padding: 14px 24px;
+      }
+
+      /* Supporting marketing content */
+      .marketing {
+        margin: 60px 0;
+      }
+      .marketing p + h4 {
+        margin-top: 28px;
+      }
+
+
+      /* Customize the navbar links to be fill the entire space of the .navbar */
+      .navbar .navbar-inner {
+        padding: 0;
+      }
+      .navbar .nav {
+        margin: 0;
+        display: table;
+        width: 100%;
+      }
+      .navbar .nav li {
+        display: table-cell;
+        width: 1%;
+        float: none;
+      }
+      .navbar .nav li a {
+        font-weight: bold;
+        text-align: center;
+        border-left: 1px solid rgba(255,255,255,.75);
+        border-right: 1px solid rgba(0,0,0,.1);
+      }
+      .navbar .nav li:first-child a {
+        border-left: 0;
+        border-radius: 3px 0 0 3px;
+      }
+      .navbar .nav li:last-child a {
+        border-right: 0;
+        border-radius: 0 3px 3px 0;
+      }
+
+      .content{
+        display: block; min-height: 400px;
+        margin: 1em 0;
+      }
+      .content > div{
+        margin: 2em 0;
+      }
+
+      .go-top{
+        position: fixed; padding: 8px;
+        width: 45px; height: 45px; line-height: 1.25;
+        background-color: #f00; color: #fff;
+        font-size: 18px; bottom: 50px; right: 50px;
+      }
+
+      .go-top:hover, .go-top:active, .go-top:visited, .go-top:focus{
+        background-color: #f00; color: #fff; text-decoration: none;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="masthead">
+        <div class="navbar">
+          <div class="navbar-inner">
+            <div class="container">
+              <ul class="nav">
+                <li data-show="home" class="nav-home"><a href="#">Home</a></li>
+                <li data-show="project" class="nav-projects"><a href="#">Projects</a></li>
+                <li data-show="services" class="nav-services"><a href="#">Services</a></li>
+                <li data-show="download" class="nav-download"><a href="#">Downloads</a></li>
+                <li data-show="about" class="nav-about"><a href="#">About</a></li>
+                <li data-show="contact" class="nav-contact"><a href="#">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- /.navbar -->
+      </div>
+      <!-- Jumbotron -->
+      <div class="jumbotron">
+        <h1>Hello 5xRuby!</h1>
+        <p class="lead">做好做滿的前端教學從這裡開始！</p>
+        <a class="started btn btn-large btn-success" href="#">Get started today</a>
+      </div>
+      <hr>
+
+      <div class="content">
+
+        <div class="content-home">
+          <h2>Home</h2>
+          <p><span class="lipsum"></span></p>
+          <p><span class="lipsum"></span></p>
+          <p><span class="lipsum"></span></p>
+          <p><span class="lipsum"></span></p>
+        </div>
+
+        <div class="content-project">
+          <h2>Projects</h2>
+          <p><span class="lipsum"></span></p>
+          <p><span class="lipsum"></span></p>
+          <p><span class="lipsum"></span></p>
+          <p><span class="lipsum"></span></p>
+        </div>
+
+        <div class="content-services">
+          <h2>Services</h2>
+          <p><span class="lipsum"></span></p>
+          <p><span class="lipsum"></span></p>
+          <p><span class="lipsum"></span></p>
+          <p><span class="lipsum"></span></p>
+        </div>
+
+        <div class="content-download">
+          <h2>Downloads</h2>
+          <p><span class="lipsum"></span></p>
+          <p><span class="lipsum"></span></p>
+          <p><span class="lipsum"></span></p>
+          <p><span class="lipsum"></span></p>
+        </div>
+
+        <div class="content-about">
+          <h2>About</h2>
+          <p><span class="lipsum"></span></p>
+          <p><span class="lipsum"></span></p>
+          <p><span class="lipsum"></span></p>
+          <p><span class="lipsum"></span></p>
+        </div>
+
+        <div class="content-contact">
+          <h2>Contact</h2>
+          <p><span class="lipsum"></span></p>
+          <p><span class="lipsum"></span></p>
+          <p><span class="lipsum"></span></p>
+          <p><span class="lipsum"></span></p>
+        </div>
+
+      </div>
+
+      <hr>
+      <div class="footer">
+        <p>&copy; Company 2013</p>
+      </div>
+    </div>
+    <!-- /container -->
+
+
+    <a href="#" class="go-top">回頂端</a>
+
+
+    <script src="scripts/jquery-3.1.0.js"></script>
+    <script src="http://more.handlino.com/javascripts/moretext-1.2.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+      // 判斷瀏覽器捲軸
+      $(window).on('scroll', function(){
+
+        window.setTimeout(function(){
+          if( $(document).scrollTop() >= 400 ){
+            $('.go-top').fadeIn();
+          }
+          else{
+            $('.go-top').fadeOut();
+          }
+        }, 100);
+
+      });
+
+      // todo: 透過 animate & scrollTop: 0 將捲軸送至頂端
+      $('.go-top').on('click', function(e){
+
+      });
+
+    </script>
+
+  </body>
+</html>

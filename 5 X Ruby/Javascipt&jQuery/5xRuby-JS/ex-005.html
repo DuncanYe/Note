@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>物件</title>
+</head>
+<body>
+
+
+<script type="text/javascript">
+
+var people = {
+  name: "Kuro",
+  age: 32,
+  skills:{
+    frontend: ["HTML", "CSS", "JavaScript"],
+    backend:  ["PHP", "ASP.net", "node.js"]
+ },
+ sayHello: function(){
+    alert('hello');
+  }
+};
+
+
+console.log( people );
+
+// 透過 . 來取得內部屬性的值
+console.log( people.name );
+
+// 物件內的 function，通常被稱為「方法」
+console.log( people.sayHello() );
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript 跟你想的不一樣</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+  foo();   // ?
+
+  var foo;
+
+  function foo(){
+    console.log( 1 );
+  }
+
+  foo = function(){
+    console.log( 2 );
+  }
+
+</script>
+
+</body>
+</html>

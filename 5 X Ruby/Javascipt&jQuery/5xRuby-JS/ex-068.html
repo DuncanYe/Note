@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <meta charset="utf-8">
+  <title> 事件與 this </title>
+  <style type="text/css">
+#word{
+  width: 150px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  border: 1px solid #000;
+  margin-bottom: 1em;
+  color: #f00;
+  font-size: 2em;
+}
+
+#block div{
+  display: block;
+  width: 100px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  border: 1px solid #000;
+  margin-bottom: 1em;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+  </style>
+</head>
+<body>
+
+<div id="word"></div>
+
+<div id="block">
+  <div>A</div>
+  <div>B</div>
+  <div>C</div>
+  <div>D</div>
+  <div>E</div>
+</div>
+
+<script src="scripts/jquery-3.1.0.js"></script>
+
+<script type="text/javascript">
+
+// 按下 #block div 後，希望把 div 內的文字傳遞給 #word 內...
+$('#block div').on('click', function(){
+
+
+});
+
+</script>
+
+</body>
+</html>

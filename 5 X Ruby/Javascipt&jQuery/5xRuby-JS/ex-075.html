@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>綜合練習: 圖片標題的提示 [動畫版]</title>
+
+  <style type="text/css">
+    body{
+      padding: 2em;
+    }
+
+    ul{
+      display: block;
+      width: 700px;
+      list-style: none;
+      padding: 0; margin: 0;
+    }
+
+    .img-list{
+      position: relative;
+      display: block; float: left;
+      margin-bottom: 1em; margin-right: 0.75em;
+      overflow: hidden;
+    }
+
+    .title{
+      display: none;
+      position: absolute;
+      left: 0; bottom: 0;
+      height: 30px; width: 95%;
+      padding-left: 5%;
+      line-height: 30px;
+      background-color: rgba(200,0,0, 0.5);
+      color: #fff;
+    }
+
+    .title.active{
+      display: block;
+    }
+
+  </style>
+</head>
+<body>
+
+<ul>
+  <li class="img-list">
+    <img src="http://placekitten.com/g/210/200" alt="">
+    <div class="title">我是貓咪1</div>
+  </li>
+
+  <li class="img-list">
+    <img src="http://placekitten.com/g/200/200" alt="">
+    <div class="title">我是貓咪2</div>
+  </li>
+
+  <li class="img-list">
+    <img src="http://placekitten.com/g/170/200" alt="">
+    <div class="title">我是貓咪3</div>
+  </li>
+
+  <li class="img-list">
+    <img src="http://placekitten.com/g/235/200" alt="">
+    <div class="title">我是貓咪4</div>
+  </li>
+
+  <li class="img-list">
+    <img src="http://placekitten.com/g/230/200" alt="">
+    <div class="title">我是貓咪5</div>
+  </li>
+
+  <li class="img-list">
+    <img src="http://placekitten.com/g/150/200" alt="">
+    <div class="title">我是貓咪6</div>
+  </li>
+</ul>
+
+  <script src="scripts/jquery-3.1.0.js"></script>
+
+  <script type="text/javascript">
+
+  // 將前面的 class 切換改為透過 jQuery 的動畫 (show/hide/fade/slide....) 來呈現
+  $('.img-list').on('mouseenter mouseleave', function(){
+
+  });
+
+  </script>
+</body>
+</html>
+

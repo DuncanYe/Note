@@ -9,7 +9,7 @@
     @import "bootstrap";
     @import "style";
 
-3. rails d kaminari:views bootstrap3
+3. rails g kaminari:views bootstrap3
 
 
 4.  Bootstrap 的 JavaScript 使用了 jQuery 的函式庫，因此我們必須安裝相關的套件：

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>字串: 從表單取值</title>
+  <style>
+    body{
+      font-size: 2em;
+    }
+    input{
+      font-size: 1.5em;
+    }
+  </style>
+</head>
+<body>
+
+
+<label>Name: <input type="text" id="name" value=""></label>
+
+
+<script type="text/javascript" src="scripts/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+
+var name = $('#name').val();
+
+console.log( 'Hello ' + name );
+
+</script>
+
+</body>
+</html>

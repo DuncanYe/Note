@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Closure</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+function doSome() {
+  var x = 10;
+
+  // 理論上， x 應該已結束其生命週期，但由於doSome中建立了閉包並傳回，x 被關閉在閉包中，
+  // 所以 x 的生命週期就與閉包的生命週期相同了。
+  function f(y) {
+    x = x + y;
+    return x;
+  }
+
+  return f;
+}
+
+var foo = doSome();
+
+console.log( foo(20) );  // ?
+console.log( foo(30) );  // ?
+
+</script>
+
+</body>
+</html>

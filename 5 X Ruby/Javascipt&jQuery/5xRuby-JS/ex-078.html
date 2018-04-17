@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>animate with .stop()</title>
+
+  <style type="text/css">
+    html, body{
+      padding: 0;
+      margin: 0;
+    }
+
+    .header, .content, .footer{
+      display: block;
+      width: 100%;
+      text-align: center;
+      font-size: 50px;
+    }
+
+    .header{
+      height: 100px;
+      line-height: 100px;
+      background-color: #eee;
+      text-align: center;
+    }
+    .content{
+      height: 800px;
+      line-height: 400px;
+      background-color: #aaa;
+    }
+    .footer{
+      position: fixed;
+      bottom: -100px;
+      height: 150px;
+      line-height: 150px;
+      background-color: #eee;
+    }
+  </style>
+
+</head>
+<body>
+
+<header class="header">header</header>
+
+<div class="content">content</div>
+
+<footer class="footer">footer</footer>
+
+
+<script src="scripts/jquery-3.1.0.js"></script>
+
+<script type="text/javascript">
+
+  $('footer').on('mouseenter', function(){
+    $(this).animate({ bottom: 0 }, 700);
+  });
+
+  $('footer').on('mouseleave', function(){
+    $(this).animate({ bottom: '-100px' }, 700);
+  });
+
+</script>
+
+</body>
+</html>

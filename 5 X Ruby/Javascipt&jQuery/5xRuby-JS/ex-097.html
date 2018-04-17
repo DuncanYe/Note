@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>當迴圈遇到 function</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+// 假設想透過迴圈 + setTimeout 來做到
+// 每秒鐘將 i 的值 console 出來
+
+for( var i = 0; i < 5; i++ ){
+  window.setTimeout(  function(){ console.log(i); }, 1000);
+}
+
+</script>
+
+</body>
+</html>

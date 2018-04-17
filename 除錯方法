@@ -1,0 +1,3 @@
+ruby -w 
+
+etc: ruby -w app/controller/welcome_controller

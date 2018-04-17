@@ -1,3 +1,13 @@
+
+
+路由，產生畫面的入口也帶有HTTP的動作，近到指定的controller action 執行裡面的動作，
+
+HTTP 是 Hypertext transfer protocol 的縮寫，也就是「超文本傳輸協定」，
+從字面上的意思，你可以把他想成是「電腦之間互相索取文件」的溝通語言
+
+路由帶的值也能用來改變畫面，(etc: form_for的表單。有值得話update無則new)
+
+
 resources
 
 member
@@ -5,3 +15,4 @@ member
 collection
 
 namespace
+

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>continue 與 break</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+  // 印出 0 ~ 9 的所有數字，但跳過 4
+  for ( var i = 0; i < 10; i++ ) {
+    if( i === 4 ) {
+      continue;
+    }
+
+    console.log( i );
+  }
+
+  console.log( '----------' );
+
+  // 迴圈從 0 跑到 9，但遇到 6 結束迴圈
+  for ( var i = 0; i < 10; i++ ) {
+    if( i === 6 ) {
+      break;
+    }
+
+    console.log( i );
+  }
+
+</script>
+
+</body>
+</html>

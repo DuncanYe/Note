@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>let 與 const</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+var tmp = 123;
+
+if (true) {
+  // ReferenceError: tmp is not defined.
+  // TDZ 死區 ( temporal dead zone )
+  tmp = 'abc';
+  let tmp;
+}
+
+</script>
+
+</body>
+</html>

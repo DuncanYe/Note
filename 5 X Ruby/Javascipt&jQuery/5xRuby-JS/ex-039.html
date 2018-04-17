@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <meta charset="utf-8">
+  <title>jquery 與 attr / prop 操作</title>
+  <style type="text/css">
+    body{
+      margin: 0; padding: 1em;
+      font-size: 30px;
+    }
+    body > div{
+      margin-bottom: 2em;
+    }
+    [disabled]{
+      color: #eee;
+      background-color: #ccc;
+    }
+  </style>
+</head>
+<body>
+
+
+<div>
+  <img id="cat" src="http://nyankochan.whdpet.com/p/1702/nPaKNfBr_20170227012234.png" alt="cat">
+</div>
+
+<div>
+  Name: <input type="text" id="name" value="Kuro">
+</div>
+
+<script src="scripts/jquery-3.1.0.js"></script>
+
+<script>
+
+  // 透過 .attr 修改圖片 src 屬性
+  // $('#cat').attr('src', 'https://felddirect.com/wp-content/uploads/2017/10/A-brown-cat-licking-its-lips.jpg');
+
+  // 為 name 增加 disabled  屬性
+  // $('#name').prop('disabled', true);
+
+</script>
+
+</body>
+</html>

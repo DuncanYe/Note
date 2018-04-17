@@ -47,12 +47,22 @@ Devise 是業界最常拿來做使用者認證 (User Authentication) 的 gem 之
   end
 
 
-  在user Modle 寫 admin? 方法 
+  在user Modle 寫 admin? 方法。也可用這些分級會員 genral gold vip
 
   def admin? 
     slef.role == "admin"
   end
 
+8. 使用者註冊增加name 欄位
+
+before_action :configure_permitted_parameters, if: :devise_controller?
+
+protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name])
+  end
 
 
 

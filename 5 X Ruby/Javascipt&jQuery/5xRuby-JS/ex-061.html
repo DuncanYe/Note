@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <meta charset="utf-8">
+  <title>jquery 與 事件 - click</title>
+  <style type="text/css">
+
+  .block{
+    border: 1px solid #000;
+    width: 100px; height: 100px;
+    margin: 1em;
+    font-size: 30px;
+  }
+
+  </style>
+</head>
+<body>
+
+
+<div class="block">Click Me</div>
+
+
+<script src="scripts/jquery-3.1.0.js"></script>
+
+<script>
+
+  // 透過 .on 來加上事件
+  $('.block').on('click', function(){
+    alert('Hello');
+  });
+
+</script>
+
+</body>
+</html>

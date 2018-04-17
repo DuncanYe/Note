@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>for-in</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+  var obj = {
+    x: 10,
+    y: 20,
+    z: 50
+  };
+
+  // for-in 可以針對物件內每個元素作迭代列舉
+  for ( var item in obj ) {
+    console.log( item, obj[item] );
+  }
+
+</script>
+
+</body>
+</html>
