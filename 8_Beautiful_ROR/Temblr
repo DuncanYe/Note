@@ -1,0 +1,17 @@
+
+
+第一次做About us page，
+controller pages(about action)
+Routes get 'about', to: "pages#about"
+Views about.html.erb(圖片 一段介紹)
+
+Model post title:string body:text
+      comment title:sring body:text post:references
+      user(using devise gem)
+
+
+讓index show page不用登入影也能看
+before_action :autthenticate)user!, except: [:index, :show]
+
+用if 限制沒登入的user權限(隱藏create destroy edit 功能)
+<% if user_signed_in? %>

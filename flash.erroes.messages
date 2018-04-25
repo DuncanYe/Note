@@ -1,5 +1,8 @@
 
 
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
 在 app/views/layouts/application.html.erb，並在yield之前加入
 套用bootstrapt的flash範例，有dismiis。
   <% if flash[:notice] %>
@@ -25,7 +28,7 @@
   <% end %>
 
 
-
+t
 1.
   <% if @category.errors.any? %>
   <ul>
@@ -45,8 +48,8 @@
 
 3.
   <% if @photo.errors.precent? %>
-    <% @photo.errors.each do |error, messages| %>
     <ul>
+    <% @photo.errors.each do |error, messages| %>
       <li><%= #{error.capitalize} #{messages} %></li>
     <% end %>  
     </ul>

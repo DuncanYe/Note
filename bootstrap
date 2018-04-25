@@ -7,17 +7,18 @@
     加上
     @import "bootstrap-sprockets";
     @import "bootstrap";
-    @import "style";
+    @import "style"; (自訂的scss，須自行開資料夾)
 
-3. rails g kaminari:views bootstrap3
+3.  Bootstrap 的 JavaScript 使用了 jQuery 的函式庫，因此我們必須安裝相關的套件：
 
-
-4.  Bootstrap 的 JavaScript 使用了 jQuery 的函式庫，因此我們必須安裝相關的套件：
     bendle gem 'jquery-rails' 
+
     在 app/assets/javascripts/application.js 
-    加上
+    加入
     //= require jquery
-    //= require bootstrap-sprockets   
+    //= require bootstrap-sprockets  
+
+    放在 //= require_tree . 上即可 
 
 
   Bootstrap 重視「行動裝置優先」，所以通常在 style.css 裡，我們會將手機版xs寫在最前面，依序往後，在後方追加 sm、md、lg 的 media query，寫在後面的 media query 會延伸或覆蓋前面的 css。

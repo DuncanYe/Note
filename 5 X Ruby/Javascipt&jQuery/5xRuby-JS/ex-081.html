@@ -60,6 +60,11 @@
     $('.img-list-handler .next').on('click', function(e){
       e.preventDefault();
 
+      if ( imgCurrPos < ('.img-window img').length - 1){
+        imgCurrPos++;
+        $('.img')
+      }
+
     });
 
     // 前一張

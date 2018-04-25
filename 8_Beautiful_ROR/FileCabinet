@@ -1,0 +1,26 @@
+https://www.udemy.com/8-beautiful-ruby-on-rails-apps-in-30-days/learn/v4/content
+
+** 在controller index 設定只拿current_user 資料
+
+docs model title:string, content:text, status:string
+user model default
+
+haml?
+
+Routes
+get 'welcome/index'
+root "welcome#index"
+
+resources :docs  
+resources :users (gem 'devise')
+
+gem devise, simple_form, haml
+
+有一個功能沒做起來，在routes 裡設定判斷顯示哪個root 。
+authenticated :user do 
+   root ‘docs#index’, as: ‘authenticated_root’
+end 
+
+ihower
+name:string, description:text, is_public:boolean, capacity:integer
+

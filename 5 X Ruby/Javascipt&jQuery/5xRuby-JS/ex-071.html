@@ -79,6 +79,9 @@
 
   <script type="text/javascript">
   // todo: 按下 .img-list 之後完成所屬 .title.active 的切換
+  $('.img-list').on('click', function(){
+    $(this).children('.title').toggleClass('active');
+  });
 
 
   </script>

@@ -1,0 +1,57 @@
+
+
+集中式 上傳到中央(github)大家去中央拿
+
+分散式 直接與同事互傳
+
+open . 打開檔案總管
+
+clear (contrl + l)
+
+一行直接add + commit。但對新開的檔案無效
+git commit -a -m "update content"
+
+檢視單一檔案的歷史紀錄
+git log -p FILENAME
+
+檢視每行程式碼的紀錄
+git blame FILENAME
+
+修改最後一次 commit，可直接修改，不需任何新ccommit
+git commit --amend
+git commit --amend -m "  "
+
+如果想要提交一個空的目錄，慣例上會放個名為 ".keep" 或 ".gitkeep" 的空白檔案。
+
+刪除檔案
+rm FILENAME
+
+救回來
+git checkout FILENAME
+不只救回來，算是把檔案回到上一個狀態，我要回到某一個時間點，沒寫的話預設為上一個
+git checkout 
+
+git reset HEAD^^ 回到commit的前兩步，把檔案放回工作區
+
+git reset HEAD^ --soft 回到前一步，把檔案放在暫存區
+
+git reset HEAD^ --hard 回到前一步，把檔案刪掉
+
+git merge 也是一個commit 可用git reset HEAD^ 刪除
+合併會多一個節點
+
+rebase跟merge很像，但不會有節點。要回復上一個commit 需要 git reset ORIG_HEAD^ --hard
+
+查詢歷史紀錄
+git reflog 
+
+* reset 可後退也可往前(可到想要去的地方) git reset e123sadq HEAD^ --hard
+
+修改歷史訊息，往上一顆推
+git rebase -i SHA1
+
+github 專案換名字後，本地端 git remote set-url origin xxxxx
+
+PDF 後面有小抄
+
+

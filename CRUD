@@ -1,3 +1,5 @@
+* Model(relationship) Routes Controller views
+
 1. 設定routes public admin member collection
 
 
@@ -24,9 +26,8 @@ C.
 前台<%= form_for @restaurant do |restaurant| %>
 後台<%= form_for [:amind, @restaurant] do |restaurant| %>
 
-寫errors message，提示缺少的資料
-
-設定必填資料 validates_presence_of :name
+**設定必填資料 validates_presence_of :name
+**寫errors message，提示缺少的資料
 
 寫Create action 
 

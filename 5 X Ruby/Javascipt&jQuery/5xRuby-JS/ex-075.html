@@ -81,6 +81,9 @@
 
   // 將前面的 class 切換改為透過 jQuery 的動畫 (show/hide/fade/slide....) 來呈現
   $('.img-list').on('mouseenter mouseleave', function(){
+    $('.img-list').on('click', function(){
+    $(this).find('.title').toggle(2000);
+  });
 
   });
 

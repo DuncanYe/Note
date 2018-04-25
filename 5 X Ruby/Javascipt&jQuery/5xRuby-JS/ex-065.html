@@ -50,9 +50,33 @@
 
   <script type="text/javascript">
     // todo: 更改內文的文字大小, 並提醒使用者目前文字狀態
-    $('.text-handler button').on('click', function(){
+
+    // $('.text-small').on('click', function(){
+    //   $('.text-field').css('font-size','12px');
+
+    // });
+    // $('.text-normal').on('click', function(){
+    //   $('.text-field').css('font-size', '22px');
+
+    // });
+    // $('.text-large').on('click', function(){
+    //   $('.text-field').css('font-size', '40px');
+
+    // });
+
+    $('.text-handler').on('click', function(){
+
+      if( $(this).hasClass('text-field')){
+        
+      }
+
+
+        $(this).addClass('active').siblings().removeClass('active')
+      }
+
 
     });
+
   </script>
 
 </body>
