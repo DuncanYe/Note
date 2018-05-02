@@ -1,6 +1,5 @@
+**About us page
 
-
-第一次做About us page，
 controller pages(about action)
 Routes get 'about', to: "pages#about"
 Views about.html.erb(圖片 一段介紹)
@@ -15,3 +14,10 @@ before_action :autthenticate)user!, except: [:index, :show]
 
 用if 限制沒登入的user權限(隱藏create destroy edit 功能)
 <% if user_signed_in? %>
+
+gem devise bootstrap jquery
+
+
+沒做出來
+Tumbler  _comment.html.erb Post.count，無法放進底下
+如果要放進去需自訂comment.size 方法

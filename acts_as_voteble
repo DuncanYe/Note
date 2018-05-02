@@ -1,0 +1,8 @@
+gem acts_as_votable
+
+設定好的migration
+rails generate acts_as_votable:migration
+rake db:migrate
+
+加進要使用的Model 裡
+acts_as_votable

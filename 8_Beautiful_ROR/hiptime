@@ -1,0 +1,27 @@
+總片總長1:40分
+
+Model
+item title:string description:text
+user (devise)
+add_user_id_to_item user_id:integer (設定item屬於user關聯)
+add_compelted_at_to_items completed_at:datatime(設定完成的item狀態)
+
+也可以直接在Create & Update action 裡直接寫上strong_paramter
+@item = Item.new(params.require(:item).permit(:title, :description))
+
+Bootstrap Jumbotron
+
+
+沒做來
+completed 無法收回
+(已解決，data type 拼錯字)completed 顯示時先有誤 
+
+
+這兩個有無差別
+用兩個post(completed, uncompleted)
+或一個patch(completed) 一個post(uncompleted)
+
+1）作者做了一個判斷，如果completed_at有資料，就把items顯示變淡
+可以不可以用別的方式來判斷？更該views顯示的判斷?
+
+2）如果要跟著作者邏輯，如何改寫？清空欄位(completed_at)資料?

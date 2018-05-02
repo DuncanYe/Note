@@ -1,0 +1,36 @@
+影片總長2小時
+
+Model
+pic title:string body:text user_id:references
+user(devise)
+
+gem
+devise bootstrap jquery
+
+
+把bootstrap的留言匡覆寫上css
+要固定寬高的原因，因為textarea原本設定可以讓使用者縮放
+
+textarea.description {
+  max-height: 40em;
+  max-width:  40em;
+  min-height: 40em;
+  min-width:  40em;
+  height: 40em;
+  width:  40em;
+}
+
+md-offset-2
+
+不用設定關聯可以單向按讚的gem
+acts_as_voteble gem 
+<%= link_to like_pic_path(@pic), method: :put , class: 'btn btn-default' do %>
+  <span class="glyphicon glyphicon-thumbs-up"></span>
+  <%= @pic.get_upvotes.size %>
+<% end %>
+
+
+
+
+沒做出來
+paperclip gem 照片無法顯示
