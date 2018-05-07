@@ -1,6 +1,6 @@
 https://www.udemy.com/8-beautiful-ruby-on-rails-apps-in-30-days/learn/v4/content
 
-** 在controller index 設定只拿current_user 資料
+特色** 在controller index 設定只拿current_user 資料
 
 docs model title:string, content:text, status:string
 user model default
@@ -20,7 +20,12 @@ ihower
 name:string, description:text, is_public:boolean, capacity:integer
 
 
-沒做出來
+
+
+
+
+
+沒做出來 (解決，把public root 放到底下。瀏覽器閱讀程式碼由上往下跑)
 cabinet 設定不同root給登入與沒登入的使用者
 在routes 裡設定判斷顯示哪個root 。
 authenticated :user do 

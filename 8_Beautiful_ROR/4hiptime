@@ -9,7 +9,7 @@ add_compelted_at_to_items completed_at:datatime(設定完成的item狀態)
 也可以直接在Create & Update action 裡直接寫上strong_paramter
 @item = Item.new(params.require(:item).permit(:title, :description))
 
-Bootstrap Jumbotron
+特色**Bootstrap Jumbotron(廣告大屏幕). 完成與未完成的tesk顯示不同排版
 
 
 沒做來

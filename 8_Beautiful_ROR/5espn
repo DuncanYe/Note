@@ -1,0 +1,13 @@
+
+
+Model 
+message title:string description:text user:references
+user(devise)
+comment content:text message:references user:references
+
+
+特色** 在不同controller 設定不同 before_action :authemticate_user! 
+
+
+沒做出來
+無法 edit delted comment 

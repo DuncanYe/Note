@@ -1,4 +1,5 @@
-**About us page
+
+特色**About us page
 
 controller pages(about action)
 Routes get 'about', to: "pages#about"
@@ -9,7 +10,7 @@ Model post title:string body:text
       user(using devise gem)
 
 
-讓index show page不用登入影也能看
+讓index show page不用登入也能看畫面
 before_action :autthenticate)user!, except: [:index, :show]
 
 用if 限制沒登入的user權限(隱藏create destroy edit 功能)
@@ -18,6 +19,9 @@ before_action :autthenticate)user!, except: [:index, :show]
 gem devise bootstrap jquery
 
 
-沒做出來
+
+
+
+沒做出來（解決，不是要自訂count，因為comment已經被獨立成一個一個，無法在count）
 Tumbler  _comment.html.erb Post.count，無法放進底下
-如果要放進去需自訂comment.size 方法
+如果要放進去需自訂comment.count 方法
