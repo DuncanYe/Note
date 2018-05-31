@@ -1,13 +1,15 @@
+
+
 gem 'paperclip', '~> 6.0.0'
 
-brew install imagemagick
-
 加在要使用的 model(etc: user pic restaurant comment) 
-has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
-validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
+has_attached_file :avatar/image/photo, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+validates_attachment_content_type :avatar/image/photo, content_type: /\Aimage\/.*\z/
 
 
 rails g paperclip pic image
+rails g paperclip play play_img
+rails g paperclip user avatar
 
 rails db:migrate
 
@@ -17,3 +19,5 @@ t.string "image_file_name"
 t.string "image_content_type"
 t.integer "image_file_size"
 t.datetime "image_updated_at"
+
+

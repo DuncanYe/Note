@@ -1,0 +1,35 @@
+影片總長3:15分
+
+使用bootstrap 4
+
+**特色 rating system(還沒做)
+
+Model
+play titel:string description:text director:string user:references category:references
+user(devise)
+category name:string
+review comment:text rating:integer user:references play:references
+
+Controller
+palys 
+reviews
+
+Routes
+  resources :plays do
+    resources :reviews
+  end
+  devise_for :users
+  root "plays#index"
+
+
+在layout 的 yield代表所有畫面，這樣做在所有頁面都有contaienr效果
+<div class:"container">
+  <%= yield %>
+<% end %>  
+
+
+問題
+一定需要的填的項目與資料庫沒直接關係validates_presence_of 
+送進資料庫的項目parmas.permit
+
+新增了category 已經建立的電影沒有category.id，希望讓他正常顯示。

@@ -1,0 +1,22 @@
+symble 是有名字的物件，
+這樣解釋的話，那 string 是有名字但名字會變的物件。
+
+has_many  belongs_to  這些不是設定，是有人寫了動態方法讓我們使用，所以後面可以接這種參數。
+
+ Hirb
+在console 打開 Hirb.enable
+
+
+has_and_belongs_to_many
+用此些法，可以只有table，不需要有Model 
+
+Product.find(999)找不到的話會噴錯
+Product.find_by(id: 999) 找不到的話不會錯誤，顯示nil
+Product.find_by(id: 0, name: 'QQ')可以搜尋多個欄位
+
+
+有一些方便方法可用來查詢資料庫資料，總和 平均之類的
+Product.sum(:price)
+Product.average(:price)
+
+不熟**scope 把資料查詢邏輯用scope寫進model

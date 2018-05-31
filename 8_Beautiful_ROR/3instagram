@@ -32,5 +32,7 @@ acts_as_voteble gem
 
 
 
-沒做出來
-paperclip gem 照片無法顯示
+bug
+問題解決** detached HEAD 
+切到master想merge branch comment，但comment detached HEAD
+1) 切回comment再開一個branch(item) 2) 切回master merge item

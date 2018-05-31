@@ -13,8 +13,18 @@ add_compelted_at_to_items completed_at:datatime(設定完成的item狀態)
 
 
 沒做來
-completed 無法收回
-(已解決，data type 拼錯字)completed 顯示時先有誤 
+把試著把blank 換成 present
+(解決，在completed加入判斷式)completed 無法收回 
+
+def completed?
+    !completed_at.blank?
+end
+改成
+def completed?
+    completed_at.present?
+end
+
+
 
 
 這兩個有無差別

@@ -1,0 +1,31 @@
+TDD (test-driven develpment)測試驅動 開發
+先寫測試 在寫功能
+
+
+gem rspec
+
+指令 rspec fizzbuzz_spec.rb
+
+建立.respec 檔案，加入以下兩行方便閱讀
+--format documentation
+--color
+
+
+
+
+
+descripbe do 
+
+  it "測試的名稱1" do
+    
+  end
+
+  it "測試的名稱2" do
+    Arrange
+    Act
+    Assert
+  end
+
+end
+
+

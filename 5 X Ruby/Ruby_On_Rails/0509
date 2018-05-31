@@ -1,0 +1,70 @@
+＊＊不熟 initialize slef
+
+Ruby是使用物件導向(繼承來繼承去)，要弄懂
+
+方法後面三種符號可掛使用 ! ? =
+
+
+singleton method 硬寫方法
+
+slef 用法
+# class Cat
+#   def Cat.all
+#     # slef.all 可寫成
+#     puts "HiHi"
+#   end
+#   def hello
+#     puts "No"
+#   end
+# end
+# Cat.all
+
+# c = Cat.new
+# c.hello
+
+
+Public, Protected, Private 方法解說
+
+# class Cat
+#   def hello
+#     puts "Hi"
+#     gossip
+      # private方法不能也無法用 . 去呼叫
+#     # 要使用private要寫在public才能呼叫
+#     # Protected可以用(slef.gossip).去呼叫他。實務上Protected方法幾乎不會用。
+#   end
+#   private
+#   def gossip
+#     puts "....."
+#   end
+# end  
+#  c = Cat.new
+#  c.hello
+
+
+Private 不能直接被@a呼叫
+
+@a.hello，@a去使用hello這方法
+@a是reveiver，holle是massager
+@a去使用hello 方法，hello把自己身上有的東西傳進給@a
+
+
+class 可以被繼承
+module 與class很像，
+module 可以不讓class變形(cat有flyble的方法，不是cat繼承fly方法)
+module 不能new 東西出來
+
+# module 用法
+# module Flyble
+#   def fly
+#     puts "fiy"
+#   end
+# end
+
+# class Cat
+#   include Flyble
+# end
+# c = Cat.new
+
+# c.fly
+

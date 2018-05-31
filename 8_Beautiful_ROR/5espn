@@ -1,4 +1,4 @@
-
+影片總長1:55分
 
 Model 
 message title:string description:text user:references
@@ -10,4 +10,9 @@ comment content:text message:references user:references
 
 
 沒做出來
+**(解決，要傳入 message comment 才能找到該留言 )<%= link_to 'Edit', edit_message_comment_path( message, comment) %>
 無法 edit delted comment 
+
+
+問題解決**git push時檔案衝突
+檔案衝突 1)先git pull 下來 2)把衝突的檔案整理病commit，3)在推上去
