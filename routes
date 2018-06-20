@@ -1,18 +1,30 @@
 
 
-路由，產生畫面的入口也帶有HTTP的動作，近到指定的controller action 執行裡面的動作，
+路由，點選按鈕後會對應到指定的controller action 執行裡面的動作，
 
 HTTP 是 Hypertext transfer protocol 的縮寫，也就是「超文本傳輸協定」，
-從字面上的意思，你可以把他想成是「電腦之間互相索取文件」的溝通語言
+從字面上的意思，可以想成「電腦之間互相索取文件」的溝通語言
 
-路由帶的值也能用來改變畫面，(etc: form_for的表單。有值得話update無則new)
+路由帶的值也能用來改變畫面，(etc: form_for的表單。有值得畫面跳轉到 update 沒有值則維持原本的 new)
 
 
-resources
+慣例優於設定 
+用 resources 開網址能產生對應的 Controller  7個方法 index show new create edit update destroy 
 
-member
+member，collection 
+使用 member 方式會帶有 :id ，這個 :id 會傳到 Controller 裡變成 params 這個變數的一部份。
 
-collection
+resources :orders do
+  collection do
+    get :cancelled
+#cancelled_orders GET  /orders/cancelled(.:format) orders#cancelled
+  end
 
-namespace
+  menber do
+    post vote
+  end
+#confirm_order POST   /orders/:id/confirm(.:format) orders#confirm
+end
+
+namespace，在路由前面加上前綴字元，用來標適用，etc: admin
 

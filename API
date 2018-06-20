@@ -1,0 +1,48 @@
+1. 拿別人資料放入自己網站。
+2. 新增Routes與Controller(CRUD，做if else 判斷回傳什麼資料)，想Render的畫面與資料格式(Json)，讓別人可以串接。
+
+在 ApplicationController 裡有一行 protect_from_forgery with: :exception，這行程式會啟動瀏覽器的安全檢查，但是 API 的請求與回應不會通過瀏覽器
+會另外建一個 ApiController，讓所有和 API 有關的 Controller 都繼承自這裡。
+API 也不需要 CSS 和 JavaScript，產生檔案時可加上一行 --no-assets
+
+
+
+＊＊
+API 是指各種軟體組件之間一套明確定義的溝通方法，讓其他應用程式能夠使用這些資料，例如上述的 Google Maps API
+
+一個軟體服務可能會在多種設備上被人使用，例如手機、瀏覽器、穿戴式設備等，這些裝置必須要和同一個後端資料庫互動
+
+清楚定義 API 的使用方式及格式等等 Json格式
+
+透過瀏覽器，你只能發出 GET 動作，若要發出 POST、PATCH、DELETE 等動作，就需要透過 Postman。
+
+＊＊
+JSON 由兩種資料結構組成，最外層可以是 Object 或者 Array。
+Objects written as name value pairs are similar to: Hashes in Ruby and Perl
+所以基本上是相同資料結構的概念(key-value型態)，只是不同名稱。
+基本上JSON目的是用來交換資料用的，簡單來說就只是一串文字(擁有規則的文字排列)，並沒有物件導向的特性。
+但由於 JSON 只是一個開發者約定成俗的設計且為有格式的字串，所以 Client 在接收後需要經過解析 (Parse)，將 JSON 轉成 Client 的程式語言可以處理的資料結構，程式才能開始讀取 JSON 內的資料。
+
+
+＊＊
+JBuilder
+高彈性地組合 template。變成在view裡去操作要回傳的資料，重複的可以拆 partial。
+
+
+
+＊＊
+Token
+是一組亂碼，用來核對使用者是否有權限拿取資料。
+
+每個 HTTP request / response 生命週期是獨立的，網頁的跳轉伺服器就會把瀏覽器給忘了，是因為瀏覽器有 cookie 機制，伺服器會透過 cookie 認出這次請求來自同一個瀏覽器。
+
+API 沒有 cookie 機制，適用Token來運作去識別客戶。
+用帳號和密碼向伺服器端換取一個 token，之後發送的每一個 HTTP 請求，都要挾帶這個 token 參數去取得資料。
+用Devise 有提供了一個 friendly_token 
+
+實作
+在User 資料表裡要有可以放 Token 資料的欄位
+User model 做before_create 在建立新使用者時就會產生Token，透過Devise提供的 friendly_token
+設定驗證機制(ApiController)，
+實作者用者登入，登入後回傳Token給他，他要拿資料時，會經過ApiController，使用者身上的Token與資料表裡的Token符合才拿得到資料
+實作使用者登出，刷新Token但不回傳，作為下次認證用。確保Token不會被其他人使用。

@@ -1,0 +1,9 @@
+rails g model XXX 後會建立 XXX Class(Model) 並且繼承 ApplicationRecord 讓 XXX Class(Model) 
+得到一系列已經設定好的方法(etc: .new .all .find_by)，與資料庫進行互動。
+另外rails 會幫忙件立 Migration 檔案，用來建立或修改資料表。
+rails db:migrate 把設定載入資料庫
+schema 有真正成立的資料庫列表
+
+
+
+link_to 預設的 method 是 get，要注意需使用method，才會找到對應的route。

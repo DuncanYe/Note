@@ -1,0 +1,10 @@
+HTTP 超文本傳輸協定（ HyperText Transfer Protocol )
+
+HTTPS 是經過 SSL 作為安全基礎的 HTTP，這僅一個字母S的差別代表"安全(secure)"
+
+http是超文本傳輸協定，而https是經過加密的超文本傳輸協定。
+
+SSL 的全名是 Secure Sockets Layer，即安全通訊端層，防止在兩個系統間傳送的資料被讀取，不管是伺服器與用戶端，或伺服器與伺服器
+此技術可使用加密演算法以混淆輸送中的資料，防止駭客在資料透過連線發送時讀取資料。
+
+TSL (Transport Layer Security，傳輸層安全性) 是更新、更安全的 SSL 版本。我們仍將安全性憑證稱為 SSL，因為這是較常用的詞彙，

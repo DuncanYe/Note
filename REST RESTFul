@@ -1,0 +1,4 @@
+用 Resources 寫法 ，
+Rails 做出 8 條不同的路由，
+對應 Controller 的 7 個方法 index show new create edit update destroy 
+
