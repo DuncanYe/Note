@@ -14,6 +14,10 @@ HTTP 是 Hypertext transfer protocol 的縮寫，也就是「超文本傳輸協�
 member，collection 
 使用 member 方式會帶有 :id ，這個 :id 會傳到 Controller 裡變成 params 這個變數的一部份。
 
+Collection: 用來操作此model內全部的資料，etc: feeds, ranking
+Member: 會傳入:id 可用來操作此model裡的單一筆資料。etc: like, favorite, dashboard
+
+
 resources :orders do
   collection do
     get :cancelled
@@ -27,4 +31,17 @@ resources :orders do
 end
 
 namespace，在路由前面加上前綴字元，用來標適用，etc: admin
+
+
+resources :users do
+    resources :posts, only: [:index, :new, :create]
+  end
+  resources :posts, only: [:show, :edit, :update, :destroy]
+end
+
+shallow 寫法
+
+resources :users do
+  resources :posts, shallow: true
+end
 

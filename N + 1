@@ -1,0 +1,35 @@
+用 bullet gem 偵測有無 N + 1 的狀況產生
+1. join主要用於過濾model之間的關係，但對查詢筆數來說並無太大幫助 2. include主要用於將大量資料在同一筆查詢內一次查好
+
+# model
+class User < ActieRecord::Base
+  has_one :car
+end
+
+class Car < ApplicationRecord
+  belongs_to :user
+end
+
+# your controller
+def index
+  @users = User.page(params[:page])
+end
+
+# view
+<% @users.each do |user| %>
+ <%= user.car.name %>
+<% end %>
+
+# your controller
+def index
+  @users = User.page(params[:page]).per(10)
+end
+
+假設User有10筆，這程式會產生出11筆Queries，一筆是查User，另外10筆是一筆一筆去查Car，嚴重拖慢效能。
+
+# your controller
+def index
+  @users = User.includes(:car).page(params[:page]).per(10)
+end
+
+用includs(:car) 把跟post 相關的Car 都一並提出

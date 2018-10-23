@@ -1,0 +1,8 @@
+counter_cache
+當有一個event table 有被 like 的紀錄，想知道這event有幾個like的紀錄用以下寫法可減少資料庫查詢，提升效能
+，
+1. 在event 加上likes_count 欄位 
+(add_column :events, :likes_count, :integer, default: 0)
+2.在likes model 寫上 belongs_to :event, conter_cache: true
+
+當like數量有新增時，event table 裡的 likes_count 欄位會自動記錄數字

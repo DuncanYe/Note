@@ -1,0 +1,7 @@
+加入 form_for 表單到 index畫面
+在index action 給 new 一個物件出來，好讓表單能呈現
+
+寫 creaat action 該有的動作
+
+edit 功能需在index畫面給一個到index的link並傳入id
+讓表單接收判斷是有 params[:id] 或是空物件

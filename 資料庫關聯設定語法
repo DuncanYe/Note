@@ -1,0 +1,4 @@
+belongs_to: optional: true 。一旦設定 belongs_to 會強制要求外鍵不能為 nil，如果在網站設計上允許讓外鍵空白，可以另外加上 optional: true 語法
+has_many: dependent: :destroy 。 如果刪除分類，底下的餐廳一並刪除。
+has_many: dependent: :restrict_with_exception：程式執行會中斷，錯誤訊息直接顯示在畫面上
+has_many: dependent: :restrict_with_error：程式會繼續執行，但回傳false，把錯誤訊息存在物件裡

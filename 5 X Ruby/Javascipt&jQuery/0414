@@ -19,6 +19,7 @@ a = a * 2;  622
 
 
 isNaN(n) 才能判斷是不是數字 無法用 === 判斷
+is Not a Nember
 isNaN("asd") true
 asd === ('asd' + 123) false
 

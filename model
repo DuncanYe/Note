@@ -4,6 +4,9 @@
 
 
 
-
   validates_presence_of :name
   validates_uniqueness_of :name
+
+  rails g model comment content user:references restaurant:references
+  referances 寫法可在comment model產生 user_id restaurant_id
+  還有設定關聯，會自動產生 belongs_to user belongs_to restaurant

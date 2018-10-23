@@ -1,0 +1,23 @@
+rvm list 
+rvm list known      # 顯示可支援的版本
+rvm get master      # rvm 取得最新列表
+sudo rvm get master # sudo 管理員權限
+rvm reload # 重整列表
+rvm list known
+rvm install 2.5  # 安裝 2.5 版本
+rvm use 2.5.1 --default # 將 Ruby 版本 2.5.1 設定為預設
+gem install rails # 安裝最新穩定版本的 rails
+
+
+想找email驗證的格式，看看有沒有人寫好，關鍵字：rails validator email formate 
+
+Ruby 中沒有屬性，只有很多很多的方法，所以效能才會差
+
+collection  :擴充本身功能
+member  :有留ID的擴充
+collection 方法，是用 Get 的方法，得到一個新的頁面。
+member 方法，是帶有一個 id 的值，然後在現有的一個頁面，做一個動作是用 Post 或 Get 的方法。
+
+
+AAA = arrange(安排) act(操作) assert(評估)
+

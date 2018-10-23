@@ -1,3 +1,28 @@
+1.
+  <% if @category.errors.any? %>
+  <ul>
+    <% @category.errors.full_messages.each do |mas| %>
+    <li><%= mas %></li>
+    <% end %>
+  </ul>
+  <% end %>
+
+
+2. 使用時機，需要顯示的錯誤訊息較少時
+  <% if @restaurant.errors.any? %>
+    <%= @category.errors.full_messages.to_sentence %> 
+  <% end %>
+
+
+
+3.
+  <% if @photo.errors.precent? %>
+    <ul>
+    <% @photo.errors.each do |error, messages| %>
+      <li><%= #{error.capitalize} #{messages} %></li>
+    <% end %>  
+    </ul>
+  <% end %>
 
 
 <p class="notice"><%= notice %></p>
@@ -26,33 +51,3 @@
     </div>
   </div>
   <% end %>
-
-
-t
-1.
-  <% if @category.errors.any? %>
-  <ul>
-    <% @category.errors.full_messages.each do |mas| %>
-    <li><%= mas %></li>
-    <% end %>
-  </ul>
-  <% end %>
-
-
-2. 使用時機，需要顯示的錯誤訊息較少時
-  <% if @restaurant.errors.any? %>
-    <%= @category.errors.full_messages.to_sentence %> 
-  <% end %>
-
-
-
-3.
-  <% if @photo.errors.precent? %>
-    <ul>
-    <% @photo.errors.each do |error, messages| %>
-      <li><%= #{error.capitalize} #{messages} %></li>
-    <% end %>  
-    </ul>
-  <% end %>
-
-

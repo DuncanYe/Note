@@ -1,0 +1,45 @@
+controller 加上
+  @ransack = User.ransack(params[:q])
+  @users = @ransack.result(distinct: true)
+
+views
+  <%= sort_link(@ransack, :name)  %>
+
+  <%= search_form_for @ransack , url: admin_users_path do |f| %>
+
+    <div>
+      <%= f.label :id_eq, 'ID' %>
+      <%= f.search_field :id_eq %>
+    </div>
+
+    <div>
+      <%= f.label :name_cont, 'Name' %>
+      <%= f.search_field :name_cont %>
+    </div>
+
+    <div>
+      <%= f.label :likes_count_gteq, 'likes' %>
+      <%= f.search_field :likes_count_gteq %>
+    </div>
+
+    <div>
+      <%= f.label :role_cont, '權限' %>
+      <%= f.select :role_cont, User::ROLE.map(&:reverse), include_blank: '不限'  %>
+    </div>
+
+    <div>
+      <%= f.submit '搜尋', class: 'btn btn-primary' %>
+      <%= link_to '重置', admin_users_path, class: 'btn btn-default' %>
+    </div>
+
+<% end %>
+
+
+
+從算counter_cache 方法(如果counter_cache是在後來才加進來的話)
+User.find_each { |u|
+  User.reset_conters(u.id, :liked_tweets_count)
+ }
+
+ 
+ Item.find_each { |i| Item.reset_counters(i.id, :registers_count )}
