@@ -1,0 +1,14 @@
+Cookie 
+像點餐的號碼牌。讓瀏覽器( HTTP? Chrome? firefox? )給出一張號碼牌，使用者也拿著號碼牌，造訪有儲存Cookie的Web
+set_coockie
+
+
+
+Session
+相對比較安全，有加密
+Session 負責紀錄 Web serer 上使用者的訊息。Session 機制會在用戶完成身份認證後，存下『所需 ?』的用戶資料，
+並產生一組對應的id，存 cookie 後傳回後端。這個 id 獨特的 (使用uuid機制產生，避免重複)。
+
+Session會記下cookie、Redis、database(mysql、postsql、postgreSQL、SQLite、)等等一些資訊，跟
+
+Rails 存 Seesion ， Seesion 存 Cookie。
