@@ -1,0 +1,30 @@
+大綱
+1. HTTTP 通訊協定、HTTP method(get post put ..)、HTTP response code(200 403 404 ..)
+2. API 設定重點、優缺點
+3. server side stateless?、Stateless connection
+
+query string
+
+body
+
+HTTP Header
+
+Timestemp 是很好判斷user是否重複post 資料(不管是網路問題或手誤)，如user有意送出相同留言，一樣能用 Timestemp 判斷出是不同物件，進而建立
+
+patch 是否 idempotent
+
+HTTP options ?
+
+
+
+給出正確的回傳值讓自己能追蹤紀錄，也可給client 較精準的回應，甚至引導至下一步。
+
+HTTP response 304 IO? 省錢
+
+403(Forbidden) 我沒辦法滿足你需求，票賣光
+
+P.25 ~ P.31 傳統網頁流程 vs 前後端分離架構
+
+
+
+P.44 需細讀Stateless connection，他說有時可能會花1.2年才真正懂
