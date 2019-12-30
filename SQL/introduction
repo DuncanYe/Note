@@ -1,0 +1,10 @@
+https://sqlbolt.com/
+
+SQL, or Structured Query Language, is a language designed to allow both technical and non-technical users query, manipulate, and transform data from a relational database. And due to its simplicity, SQL databases provide safe and scalable storage for millions of websites and mobile applications.
+
+SELECT column, another_column FROM which_table
+<!-- 顯示 which_table 裡的 column 跟 another_column 欄位資料 -->
+
+SELECT * FROM which_table
+
+<!-- 顯示 which_table 裡的 *(所有) 欄位資料  -->
