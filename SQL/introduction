@@ -2,9 +2,44 @@ https://sqlbolt.com/
 
 SQL, or Structured Query Language, is a language designed to allow both technical and non-technical users query, manipulate, and transform data from a relational database. And due to its simplicity, SQL databases provide safe and scalable storage for millions of websites and mobile applications.
 
+** convention **
+SQL doesn't require you to write the keywords(SELECT、FROM、WHERE ..) all capitalized, but as a convention, it helps people distinguish SQL keywords from column and tables names, and makes the query easier to read.
+
+
+Lesson 1
 SELECT column, another_column FROM which_table
 <!-- 顯示 which_table 裡的 column 跟 another_column 欄位資料 -->
 
 SELECT * FROM which_table
-
 <!-- 顯示 which_table 裡的 *(所有) 欄位資料  -->
+
+
+SQL Lesson 2: Queries with constraints
+<!-- Id  Title Director  Year  Length_minutes
+1 Toy Story John Lasseter 1995  81
+2 A Bug's Life  John Lasseter 1998  95
+3 Toy Story 2 John Lasseter 1999  93
+4 Monsters, Inc.  Pete Docter 2001  92
+5 Finding Nemo  Andrew Stanton  2003  107
+6 The Incredibles Brad Bird 2004  116
+7 Cars  John Lasseter 2006  117
+8 Ratatouille Brad Bird 2007  115
+9 WALL-E  Andrew Stanton  2008  104
+10  Up  Pete Docter 2009  101
+ -->
+SELECT title, year FROM movies
+WHERE year <= 2003;
+<!-- 顯示名字、年份，條件是前五部發行的作品 -->
+SELECT title, year FROM movies
+WHERE year
+BETWEEN 1995 AND 2003
+
+SQL Lesson 3: Queries with constraints (case-insensitive case-sensitive)
+
+SELECT * FROM movies
+WHERE title LIKE "%WALL%"
+<!-- Find all the WALL-* movies -->
+<!-- Id  Title Director  Year  Length_minutes
+9 WALL-E  Andrew Stanton  2008  104
+87  WALL-G  Brenda Chapman  2042  97
+ -->
