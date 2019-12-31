@@ -43,3 +43,68 @@ WHERE title LIKE "%WALL%"
 9 WALL-E  Andrew Stanton  2008  104
 87  WALL-G  Brenda Chapman  2042  97
  -->
+
+SQL Lesson 4: Filtering and sorting Query results
+
+
+DISTINCT keyword will blindly remove duplicate rows
+ORDER provides a way to sort your results by a given column in ascending or descending order
+
+commonly used with the ORDER BY clause are the LIMIT and OFFSET clauses
+LIMIT will reduce the number of rows to return, and the optional
+OFFSET will specify where to begin counting the number rows from.
+
+
+
+Q：List all directors of Pixar movies (alphabetically), without duplicates
+SELECT DISTINCT director FROM movies
+ORDER BY director ASC;
+
+Q：List the last four Pixar movies released (ordered from most recent to least)
+SELECT * FROM movies
+WHERE year >= 2010
+ORDER BY year DESC;
+
+Q：List the first five Pixar movies sorted alphabetically
+SELECT * FROM movies
+ORDER BY title ASC
+LIMIT 5;
+
+Q：List the next five Pixar movies sorted alphabetically
+SELECT * FROM movies
+ORDER BY title ASC
+LIMIT 5 OFFSET 5;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
