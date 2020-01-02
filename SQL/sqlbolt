@@ -162,6 +162,8 @@ WHERE building IS NULL;
 
 Q2：Find the names of the buildings that hold no employees
 
+It's always good to reduce the possibility of NULL values in databases because they require special attention when constructing queries, constraints (certain functions behave differently with null values) and when processing the results.
+
 我的答案
 SELECT building_name FROM Buildings
 LEFT JOIN employees
@@ -175,11 +177,104 @@ LEFT JOIN employees
     WHERE role IS NULL;
 
 
+SQL Lesson 9: Queries with expressions
+
+you can also use expressions to write more complex logic on column values in a query. These expressions can use mathematical and string functions along with basic arithmetic to transform values when the query is executed, as shown in this physics example.
+
+SELECT particle_speed / 2.0 AS half_particle_speed
+FROM physics_data
+WHERE ABS(particle_position) * 10.0 > 500;
+
+we recommend that when expressions are used in the SELECT part of the query, that they are also given a descriptive alias using the AS keyword.
+
+Q1：List all movies and their combined sales in millions of dollars
+我的答案
+SELECT (domestic_sales + international_sales) / 1000000 AS all_sales_in_millions
+FROM boxoffice
+
+(沒明確指出要顯示 movies title，可是答案卻一定要顯示)
+課本答案
+SELECT title, (domestic_sales + international_sales) / 1000000 AS gross_sales_millions
+FROM movies
+  JOIN boxoffice
+    ON movies.id = boxoffice.movie_id;
+
+Q2：List all movies and their ratings in percent
+我的答案
+SELECT (Rating * 10) AS present
+FROM boxoffice
+
+(沒明確指出要顯示 movies title，可是答案卻一定要顯示)
+課本答案
+SELECT title, rating * 10 AS rating_percent
+FROM movies
+  JOIN boxoffice
+    ON movies.id = boxoffice.movie_id;
 
 
+Q3：List all movies that were released on even number years
+SELECT 的欄位都可以改變他的名稱
+(我的答案。沒注意到可以直接從 movies 下手就行。)
+SELECT title AS t, year AS even_number_year
+FROM movies
+  JOIN boxoffice
+    ON movies.id = boxoffice.movie_id
+      WHERE year % 2 = 0;
+
+(課本答案)
+SELECT title, year
+FROM movies
+WHERE year % 2 = 0;
 
 
+SQL Lesson 10: Queries with aggregates (Pt. 1)
 
+Q1：Find the longest time that an employee has been at the studio
+SELECT MAX(years_employed) FROM employees;
+
+Q2：For each role, find the average number of years employed by employees in that role
+SELECT DISTINCT role, AVG(years_employed) FROM employees
+GROUP BY role ;
+(DISTINCT 是多餘的， GROUP BY 就會濾掉重複的)
+
+Q3：Find the total number of employee years worked in each building
+SELECT building, SUM(years_employed)
+FROM employees
+GROUP BY building;
+
+SQL Lesson 11: Queries with aggregates (Pt. 2)
+
+The HAVING clause constraints are written the same way as the WHERE clause constraints, and are applied to the grouped row
+如果用到 GROUP BY 的話，WHERE 就無法使用，可以用 HAVING 來取代
+
+Q1：Find the number of Artists in the studio (without a HAVING clause)
+我的答案
+SELECT COUNT(role) FROM employees
+WHERE role = "Artist";
+
+課本答案
+SELECT role, COUNT(*) as Number_of_artists
+FROM employees
+WHERE role = "Artist";
+
+
+Q2：Find the number of Employees of each role in the studio
+SELECT role, COUNT(*)
+FROM employees
+GROUP BY role
+
+
+Q3：Find the total number of years employed by all Engineers
+我的答案 (沒用到 HAVING 語法，本課的重點)
+SELECT SUM(years_employed)
+FROM employees
+WHERE role = 'Engineer';
+
+課本答案
+SELECT role, SUM(years_employed)
+FROM employees
+GROUP BY role
+HAVING role = "Engineer";
 
 
 
