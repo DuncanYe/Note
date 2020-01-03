@@ -14,25 +14,6 @@ SELECT * FROM which_table
 <!-- 顯示 which_table 裡的 *(所有) 欄位資料  -->
 
 
-SQL Lesson 2: Queries with constraints
-<!-- Id  Title Director  Year  Length_minutes
-1 Toy Story John Lasseter 1995  81
-2 A Bug's Life  John Lasseter 1998  95
-3 Toy Story 2 John Lasseter 1999  93
-4 Monsters, Inc.  Pete Docter 2001  92
-5 Finding Nemo  Andrew Stanton  2003  107
-6 The Incredibles Brad Bird 2004  116
-7 Cars  John Lasseter 2006  117
-8 Ratatouille Brad Bird 2007  115
-9 WALL-E  Andrew Stanton  2008  104
-10  Up  Pete Docter 2009  101
- -->
-SELECT title, year FROM movies
-WHERE year <= 2003;
-<!-- 顯示名字、年份，條件是前五部發行的作品 -->
-SELECT title, year FROM movies
-WHERE year
-BETWEEN 1995 AND 2003
 
 SQL Lesson 3: Queries with constraints (case-insensitive case-sensitive)
 
@@ -56,11 +37,11 @@ OFFSET will specify where to begin counting the number rows from.
 
 
 
-Q：List all directors of Pixar movies (alphabetically), without duplicates
+Q1：List all directors of Pixar movies (alphabetically), without duplicates
 SELECT DISTINCT director FROM movies
 ORDER BY director ASC;
 
-Q：List the last four Pixar movies released (ordered from most recent to least)
+Q2：List the last four Pixar movies released (ordered from most recent to least)
 SELECT * FROM movies
 WHERE year >= 2010
 ORDER BY year DESC;
@@ -69,12 +50,12 @@ SELECT * FROM movies
 ORDER BY year DESC
 LIMIT 4;
 
-Q：List the first five Pixar movies sorted alphabetically
+Q3：List the first five Pixar movies sorted alphabetically
 SELECT * FROM movies
 ORDER BY title ASC
 LIMIT 5;
 
-Q：List the next five Pixar movies sorted alphabetically
+Q4：List the next five Pixar movies sorted alphabetically
 SELECT * FROM movies
 ORDER BY title ASC
 LIMIT 5 OFFSET 5;
@@ -228,6 +209,11 @@ WHERE year % 2 = 0;
 
 
 SQL Lesson 10: Queries with aggregates (Pt. 1)
+COUNT、MIN、MAX、AVG、SUM
+
+you can instead apply the aggregate functions to individual groups of data within that group
+This would then create as many results as there are unique groups defined as by the GROUP BY clause.
+
 
 Q1：Find the longest time that an employee has been at the studio
 SELECT MAX(years_employed) FROM employees;
@@ -277,8 +263,25 @@ GROUP BY role
 HAVING role = "Engineer";
 
 
+SQL Lesson 12: Order of execution of a Query
 
+Now that we have an idea of all the parts of a query, we can now talk about how they all fit together in the context of a complete query.
 
+each part of the query is executed sequentially
+
+GROUP BY 會只列出那個欄位裡的值過濾掉重複的，只印出 unique 的，所以基本上會搭配 aggregate 去計算
+
+https://sqlbolt.com/lesson/select_queries_order_of_execution
+
+Q1：Find the number of movies each director has directed
+SELECT Director, COUNT(*) FROM movies
+GROUP BY Director
+
+Q2：Find the total domestic and international sales that can be attributed to each director
+SELECT director, sum(Domestic_sales + International_sales) FROM movies
+LEFT JOIN Boxoffice
+     ON id = movie_id
+GROUP BY Director
 
 
 
