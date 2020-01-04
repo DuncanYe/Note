@@ -1,5 +1,15 @@
 https://sqlbolt.com/
 
+提醒：
+1.Join 時記得要用 ON 兩邊資料先濾出來
+  想找兩邊資料一定要有交集的用 INNER JOIN
+  想以第一個 Table 資料為主的用 LEFT JOIN
+  想以第二個 Table 資料為主的用 RIGHT JOIN
+  兩邊資料都要留下的用 FULL JOIN
+
+2.GROUP BY 基本上都會搭配 aggregates 去計算
+  GROUP BY col ，會秀出那推資料的其中一筆做為代表，但其實其他資料都還在。所以可以去 COUNT 或 SUM AVG 算出那一群資料的數量、總額、平均之類的
+
 SQL, or Structured Query Language, is a language designed to allow both technical and non-technical users query, manipulate, and transform data from a relational database. And due to its simplicity, SQL databases provide safe and scalable storage for millions of websites and mobile applications.
 
 ** convention **
@@ -152,6 +162,7 @@ LEFT JOIN Employees
 
 SQL Lesson 8: A short note on NULLs
 
+It's always good to reduce the possibility of NULL values in databases because they require special attention when constructing queries, constraints (certain functions behave differently with null values) and when processing the results.
 
 Q1：Find the name and role of all employees who have not been assigned to a building
 SELECT name, role FROM employees
@@ -159,9 +170,6 @@ WHERE building IS NULL;
 
 
 Q2：Find the names of the buildings that hold no employees
-
-It's always good to reduce the possibility of NULL values in databases because they require special attention when constructing queries, constraints (certain functions behave differently with null values) and when processing the results.
-
 我的答案
 SELECT building_name FROM Buildings
 LEFT JOIN employees
