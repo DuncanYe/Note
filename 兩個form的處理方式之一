@@ -1,0 +1,123 @@
+<div class="card-body">
+
+  <%= simple_form_for :search, method: :get, url: admin_banners_path do |f| %>
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="form-group">
+          <%= f.label :type, '頁面' %>
+          <%= f.input :type_eq, class: 'form-control',
+                      label: false, collection: banner_page_collection.unshift(["全部", nil]), prompt: false,
+                      selected: @search_params[:type_eq] %>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group">
+          <%= f.label :banner_type, '版位名稱' %>
+          <%= f.input :banner_type_eq, class: 'form-control',
+                      label: false, collection: ransack_banner_type_collection(@search_params[:type_eq]), prompt: false,
+                      selected: @search_params[:banner_type_eq] %>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group">
+          <%= f.label :status, '狀態' %>
+          <%= f.input :status_eq, class: 'form-control',
+                      label: false, collection: [["全部", nil], ["進行中", "active"], ["未開始", "unprocess"], ["已結束", "close"]],
+                      prompt: false, selected: @search_params[:status_eq] %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="form-group">
+          <%= f.label :level_1, '館頁(L1)' %>
+          <%= f.input :level_1_eq, class: 'form-control',
+                      label: false, collection: ransack_level_1_collection, prompt: false,
+                      selected: @search_params[:level_1_eq] %>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group">
+          <%= f.label :level_2, '類頁(L2)' %>
+          <%= f.input :level_2_eq, class: 'form-control',
+                      label: false, collection: ransack_level_2_level_3_collection(@search_params[:level_2_eq]), prompt: false,
+                      selected: @search_params[:level_2_eq] %>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group">
+          <%= f.label :level_3, '類頁(L3)' %>
+          <%= f.input :level_3_eq, class: 'form-control',
+                      label: false, collection: ransack_level_2_level_3_collection(@search_params[:level_3_eq]), prompt: false,
+                      selected: @search_params[:level_3_eq] %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="form-group">
+          <%= f.label :display_name_for_staff, '廣告名稱' %>
+          <%= f.input :display_name_for_staff_cont, class: 'form-control',
+                      label: false, input_html: { value: @search_params[:display_name_for_staff_cont] } %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-5"></div>
+      <div class="col-sm-2">
+        <div class="form-group">
+          <label >&nbsp;</label>
+          <%= f.submit '查詢', class: 'btn btn-primary btn-block' %>
+        </div>
+      </div>
+
+  
+
+      <!-- 新增按鈕 -->
+      <div class="col-sm-2">
+        <div class="form-group">
+          <label >&nbsp;</label>
+          <button type="button" class="btn btn-success btn-block" data-toggle="modal" data-target="#myModal">新增</button>
+          <!-- 彈跳視窗 -->
+          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                
+                  <div class="modal-body">
+                    <div class="BannerPage">
+                      <div class="form-group select optional banner_type">
+                        <label class="select optional" for="banner_type">頁面</label>
+                        <select class="form-control form-control-sm select optional" name="banner[type]" id="banner_type" form="new_banner">
+                          <!-- 這裡加上 form="new_banner" -->
+                          <option value="">請選擇</option>
+                          <option value="Banner::GlobalPage">全站</option>
+                          <option value="Banner::HomePage">首頁</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="BannerType">
+                      <div class="form-group select required banner_banner_type"><label class="select required" for="banner_banner_type">版位 <abbr title="required">*</abbr></label><select class="form-control form-control-sm select required" name="banner[banner_type]" id="banner_banner_type" form="new_banner"></select></div>
+                      <!-- 這裡加上 form="new_banner" -->
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">取消</button>
+                    <!-- 這裡加上 form="new_banner" -->
+                    <input type="submit" name="commit" value="新增" form="new_banner" class="btn btn-success btn-sm" data-disable-with="新增" />
+                  </div>
+              </div>
+            </div>
+          </div>
+          <!--  彈跳視窗 -->
+        </div>
+      </div>
+      <!-- 新增按鈕 -->
+    </div>
+  <% end %>
+  <!-- 把新增的 form 拉到第一個 form 的外面，但輸入的內容可以放在裡面，第80行 ~ 116行 -->
+  <form class="simple_form new_banner" id="new_banner" novalidate="novalidate" action="/admin/banners/new" accept-charset="UTF-8" method="get">
+  </form>
+</div>
