@@ -120,4 +120,9 @@
   <!-- 把新增的 form 拉到第一個 form 的外面，但輸入的內容可以放在裡面，第80行 ~ 116行 -->
   <form class="simple_form new_banner" id="new_banner" novalidate="novalidate" action="/admin/banners/new" accept-charset="UTF-8" method="get">
   </form>
+  
+  <!-- 也可用simple_form 的方式建立表單，重點是指定 form的id名稱 -->
+  </form>
+  <%#= simple_form_for [:admin, @banner], method: :get, url: new_admin_banner_path, html: { id: 'new_banner' } do |f| %>
+  <%# end %>
 </div>
