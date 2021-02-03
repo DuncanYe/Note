@@ -20,10 +20,15 @@
       </div>
       <div class="col-sm-3">
         <div class="form-group">
-          <%= f.label :status, '狀態' %>
-          <%= f.input :status_eq, class: 'form-control',
-                      label: false, collection: [["全部", nil], ["進行中", "active"], ["未開始", "unprocess"], ["已結束", "close"]],
-                      prompt: false, selected: @search_params[:status_eq] %>
+          <label class="select optional" for="banner_type">狀態</label>
+          <div class="form-group select required search_status_eq">
+            <select class="form-control form-control-sm select required" name="search[status_eq]" id="search_status_eq" form="search_banner">
+              <option selected="selected" value="">全部</option>
+              <option value="active">進行中</option>
+              <option value="unprocess">未開始</option>
+              <option value="close">已結束</option>
+            </select>
+          </div>
         </div>
       </div>
     </div>
@@ -58,9 +63,10 @@
     <div class="row">
       <div class="col-sm-3">
         <div class="form-group">
-          <%= f.label :display_name_for_staff, '廣告名稱' %>
-          <%= f.input :display_name_for_staff_cont, class: 'form-control',
-                      label: false, input_html: { value: @search_params[:display_name_for_staff_cont] } %>
+          <label for="search_display_name_for_staff">廣告名稱</label>
+          <div class="form-group string required search_display_name_for_staff_cont">
+            <input class="form-control form-control-sm string required" value="<%= @search_params[:display_name_for_staff_cont] %>" type="text" name="search[display_name_for_staff_cont]" id="search_display_name_for_staff_cont" />
+          </div>
         </div>
       </div>
     </div>
