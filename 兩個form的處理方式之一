@@ -23,10 +23,10 @@
           <label class="select optional" for="banner_type">狀態</label>
           <div class="form-group select required search_status_eq">
             <select class="form-control form-control-sm select required" name="search[status_eq]" id="search_status_eq" form="search_banner">
-              <option selected="selected" value="">全部</option>
-              <option value="active">進行中</option>
-              <option value="unprocess">未開始</option>
-              <option value="close">已結束</option>
+              <option <%= @search_params[:status_eq] == '' ? "selected" : '' %> value="">全部</option>
+              <option <%= @search_params[:status_eq] == 'active' ? "selected" : '' %> value="active">進行中</option>
+              <option <%= @search_params[:status_eq] == 'unprocess' ? "selected" : '' %> value="unprocess">未開始</option>
+              <option <%= @search_params[:status_eq] == 'close' ? "selected" : '' %> value="close">已結束</option>
             </select>
           </div>
         </div>
